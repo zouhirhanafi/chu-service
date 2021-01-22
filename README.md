@@ -20,9 +20,10 @@
 
 ## Spring REST
 
-1. Exemple CRUD
-2. Gestion des exceptions et status de retour
-3. Intégration SWAGGER
+[x] Introduction
+[ ] Exemple CRUD
+[ ] Gestion des exceptions et status de retour
+[ ] Intégration SWAGGER
 
 ## Spring DATA
 

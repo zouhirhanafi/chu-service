@@ -1,1 +1,10 @@
+pluginManagement {
+	 plugins {
+		id 'org.springframework.boot' version "$spring_version"
+		id 'io.spring.dependency-management' version "$spring_dependency_management"
+		id "com.github.ben-manes.versions" version "$versions_plugin_version"
+		id "io.franzbecker.gradle-lombok" version "$lombok_plugin_version"
+	 }
+}
+
 rootProject.name = 'chu-service'

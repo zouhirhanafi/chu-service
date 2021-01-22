@@ -1,12 +1,23 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.2'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+	id 'org.springframework.boot'
+	id 'io.spring.dependency-management'
+	id "com.github.ben-manes.versions"
+	id "java"
+	id "io.franzbecker.gradle-lombok"
+	id "eclipse"
+	id "idea"
 }
 
 group = 'ma.ensaf'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+
+description = ""
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+assert System.properties["java.specification.version"] == "1.8" || "11" || "12" || "13" || "14"
+
+defaultTasks "bootRun"
 
 configurations {
 	compileOnly {
@@ -22,13 +33,18 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
 	useJUnitPlatform()
 }
+
+
+lombok {
+	version = "$lombok_version"
+	sha256 = ""
+}
+

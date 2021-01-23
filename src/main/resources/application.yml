@@ -8,3 +8,28 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  data:
+    rest:
+      page-param-name: page
+      limit-param-name: size
+
+server:
+  error:
+    include-stacktrace: on-trace-param
+
+
+#springdoc:
+#  api-docs:
+#    path: /custom-api-docs # custom path for api docs
+#  swagger-ui:
+#    path: /custom-swagger-ui.html
+#    operationsSorter: method
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'

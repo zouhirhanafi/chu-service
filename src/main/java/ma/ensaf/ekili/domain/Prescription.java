@@ -10,16 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
 import lombok.Setter;
 import ma.ensaf.ekili.domain.enumeration.StatutPrescription;
+import ma.ensaf.support.domain.CustomAbstractPersistable;
 
 /**
  * A Prescription.
@@ -30,12 +31,11 @@ import ma.ensaf.ekili.domain.enumeration.StatutPrescription;
 @Entity
 @Table(name = "prescription")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Prescription extends AbstractPersistable<Long> {
+public class Prescription extends CustomAbstractPersistable<Long> {
 
-	@Column(name = "duree")
+	@NotNull
 	private Integer duree;
 
-	@Column(name = "capillaire")
 	private Integer capillaire;
 
 	@Column(name = "restitution_p")
@@ -88,7 +88,7 @@ public class Prescription extends AbstractPersistable<Long> {
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "statut")
-	private StatutPrescription statut;
+	private StatutPrescription statut = StatutPrescription.AVENIR;
 
 	@Column(name = "motif_annulation")
 	private Integer motifAnnulation;
@@ -103,10 +103,7 @@ public class Prescription extends AbstractPersistable<Long> {
 	@JoinColumn(unique = true)
 	private TraitementPerdialyse traitement;
 
-	@OneToOne
-	@JoinColumn(unique = true)
-	private Surveillance surveillance;
-
+	@NotNull
 	@ManyToOne
 	@JsonIgnoreProperties(value = "prescriptions", allowSetters = true)
 	private DossierPatient patient;

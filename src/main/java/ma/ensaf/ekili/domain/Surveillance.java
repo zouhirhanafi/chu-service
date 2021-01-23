@@ -9,10 +9,10 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import lombok.Getter;
 import lombok.Setter;
+import ma.ensaf.support.domain.CustomAbstractPersistable;
 
 /**
  * A Surveillance.
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "surveillance")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Surveillance extends AbstractPersistable<Long> {
+public class Surveillance extends CustomAbstractPersistable<Long> {
 
 	@NotNull
 	@Column(name = "infirmier", nullable = false)
@@ -60,4 +60,8 @@ public class Surveillance extends AbstractPersistable<Long> {
 	@JoinColumn(unique = true)
 	private TraitementPerdialyse traitement;
 
+	@NotNull
+	@OneToOne
+	@JoinColumn(unique = true)
+	private Prescription prescription;
 }

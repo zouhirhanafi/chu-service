@@ -6,6 +6,6 @@ package ma.ensaf.ekili.domain.enumeration;
 public enum StatutPrescription {
     TERMINEE,
     AVENIR,
+    ENCOURS,
     ANNULEE,
-    REPORTEE,
 }

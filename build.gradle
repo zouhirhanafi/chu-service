@@ -43,6 +43,7 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.2'
 	
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

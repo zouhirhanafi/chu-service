@@ -75,4 +75,14 @@ public class DossierPatient extends AbstractPersistable<Long> {
 	@JoinColumn(unique = true)
 	private ExamenClinique examenClinique;
 
+	public String log() {
+		return "DossierPatient [ip=" + ip + ", nom=" + nom + ", prenom=" + prenom + ", genre=" + genre + ", tel=" + tel
+				+ ", adresse=" + adresse + ", amo=" + amo + ", typeCentreOrigine=" + typeCentreOrigine
+				+ ", villeCentreOrigine=" + villeCentreOrigine + ", observation=" + observation + ", naissance="
+				+ naissance + ", antecedent=" + antecedent + ", diagnostic=" + diagnostic + ", indicationHd="
+				+ indicationHd + ", examenClinique=" + examenClinique + "]";
+	}
+	
+	
+
 }

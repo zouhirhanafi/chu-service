@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import ma.ensaf.ekili.aop.LogExecutionTime;
 import ma.ensaf.ekili.domain.DossierPatient;
 import ma.ensaf.ekili.service.DossierPatientService;
 
@@ -32,6 +33,7 @@ public class DossierPatientController {
 		return dossierPatientService.save(entity);
 	}
 
+	@LogExecutionTime
 	@PutMapping
 	public <S extends DossierPatient> S update(@Valid @RequestBody S entity) {
 		return dossierPatientService.update(entity);

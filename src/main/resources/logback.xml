@@ -3,18 +3,21 @@
 
 <!-- https://www.baeldung.com/logback -->
 <configuration scan="true">
+	<property name="LOG_PATH" value="logs"/>
+<!-- 	<include resource="org/springframework/boot/logging/logback/base.xml" /> -->
 
-	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-			</pattern>
-		</encoder>
-	</appender>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
 
-	<logger name="org.hibernate.SQL" level="DEBUG" />
-	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" />
+
+<!-- 	<logger name="org.hibernate.SQL" level="DEBUG" /> -->
+<!-- 	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" /> -->
 
 <!--     <logger name="org.hibernate" level="TRACE"/> -->
+<!--     <logger name="com" level="TRACE"/> -->
+<!--     <logger name="com.ensaf" level="DEBUG"/> -->
+<!--     <logger name="com.ensaf.ekili" level="WARN"/> -->
+    <logger name="ma.ensaf" level="TRACE"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

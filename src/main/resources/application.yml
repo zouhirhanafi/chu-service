@@ -24,7 +24,7 @@ spring:
 
   profiles:
     active:
-    - dev
+    - prod
 
 server:
   error:
@@ -37,6 +37,11 @@ server:
 #  swagger-ui:
 #    path: /custom-swagger-ui.html
 #    operationsSorter: method
+
+
+app:
+  security:
+    secret-key: d1s9ZW9maSBvU0Z2b3doaXNwcmluZy1zZWN1cml0eS1zZWNyZXQta2V5IyQpKEBSX0AoI113ZidrO3cnXA==
 
 management:
   endpoint:

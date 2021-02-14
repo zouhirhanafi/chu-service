@@ -38,12 +38,12 @@ public class User extends AbstractPersistable<Long> {
 	@Pattern(regexp = Constants.LOGIN_REGEX)
 	@Size(min = 1, max = 50)
 	@Column(length = 50, unique = true, nullable = false)
-	private String login;
+	private String username;
 
 	@JsonIgnore
 	@NotNull
-	@Size(max = 60)
-	@Column(name = "password_hash", length = 60, nullable = false)
+	@Size(max = 250)
+	@Column(name = "password_hash", length = 250, nullable = false)
 	private String password;
 
 	@Size(max = 50)

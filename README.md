@@ -25,7 +25,7 @@
 3. [x] Gestion des exceptions et status de retour
 4. [x] Intégration SWAGGER
 5. [x] DTO
-6. [ ] Consume the API (reste WebClient et OpenFeign)
+6. [x] Consume the API (RestTemplate et OpenFeign)
 
 ## Spring DATA
 
@@ -37,3 +37,6 @@
 6. Auditing & Hibernate Envers
 
 ## Spring Security
+1. [x] Config Spring (default config, inmemory, jdbc, userservice)
+2. [x] JWT
+3. [ ] Exemple gestion utilisateurs, auth, signup, reset password

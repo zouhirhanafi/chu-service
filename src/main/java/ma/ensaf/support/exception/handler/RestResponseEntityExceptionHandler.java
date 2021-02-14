@@ -8,6 +8,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -23,6 +24,11 @@ public class RestResponseEntityExceptionHandler /* extends ResponseEntityExcepti
 	@ExceptionHandler({ NoSuchElementException.class, EmptyResultDataAccessException.class })
 	public ResponseEntity<Object> handleNotFoundException(Exception ex, WebRequest request) {
 		return handleException(ex, "entity.not_found", null, HttpStatus.NOT_FOUND, request);
+	}
+
+	@ExceptionHandler({ DisabledException.class })
+	public ResponseEntity<Object> handleDisabledException(Exception ex, WebRequest request) {
+		return handleException(ex, "user.not_activated", null, HttpStatus.BAD_REQUEST, request);
 	}
 
 	protected ResponseEntity<Object> handleException(Exception ex, String message, HttpHeaders headers,

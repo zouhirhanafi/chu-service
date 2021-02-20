@@ -25,6 +25,19 @@ spring:
   profiles:
     active:
     - prod
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: innovds.d@gmail.com
+    password: your password
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+  thymeleaf:
+    mode: HTML
 
 server:
   error:
@@ -40,6 +53,7 @@ server:
 
 
 app:
+  baseUrl: http://localhost:8080
   security:
     secret-key: d1s9ZW9maSBvU0Z2b3doaXNwcmluZy1zZWN1cml0eS1zZWNyZXQta2V5IyQpKEBSX0AoI113ZidrO3cnXA==
 
